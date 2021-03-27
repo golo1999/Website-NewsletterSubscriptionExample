@@ -1,0 +1,176 @@
+*{
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    outline: none;
+    padding: 0;
+}
+
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+}
+
+body::before{
+    background: linear-gradient(315deg, #f1f2f6 0%, #c9c6c6 74%);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.envelope-container{
+    background-color: #00469C;
+    height: 25vmax;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -30%);
+    width: 50vmax;
+}
+
+.envelope-container > .envelope-back{
+    background-color: transparent;
+    height: 100%;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+    pointer-events: none; /* pentru a putea da click pe scrisoare (are z-index mai mic decat envelope-front-left si envelope-front-right) */
+}
+
+.envelope-container > .envelope-back > .envelope-front-left{
+	border-left: 50vmax solid #00469C;
+	border-top: 25vmax solid transparent;
+	height: 0;
+    filter: brightness(90%);
+    width: 0;
+    z-index: 2;
+}
+
+.envelope-container > .envelope-back > .envelope-front-right{
+	border-right: 50vmax solid #00469C;
+	border-top: 25vmax solid transparent;
+	height: 0;
+    filter: brightness(110%);
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+    z-index: 3;
+}
+
+.envelope-container > .envelope-top{
+    border-bottom: 12.5vmax solid transparent;
+    border-left: 25vmax solid transparent;
+    border-right: 25vmax solid transparent;
+    border-top: 12.5vmax solid #00469C;
+    filter: brightness(80%);
+    height: 0;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform-origin: top;
+    width: 0;
+    z-index: 2;
+}
+
+.envelope-container > .envelope-top.envelope-top-open{
+    filter: brightness(110%);
+    transform: rotateX(180deg);
+}
+
+.envelope-container > .letter{
+    background-color: white;
+    height: 90%;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    z-index: -1;
+}
+
+.envelope-container > .letter > .letter-top{
+    height: 5%;
+    width: 100%;
+    background-image: repeating-linear-gradient(135deg, rgb(236, 171, 42) 0px, rgb(236, 171, 42) 23px,rgb(199, 51, 188) 23px, rgb(199, 51, 188) 55px,rgb(218, 111, 115) 55px, rgb(218, 111, 115) 63px);
+    position: fixed;
+    top: 0;
+}
+
+.envelope-container > .letter > .letter-main-container{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.envelope-container > .letter > .letter-main-container > h1{
+    font-size: 3vmin;
+    font-weight: bold;
+    margin-bottom: 2vmin;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.envelope-container > .letter > .letter-main-container > form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vmin;
+    width: 100%;
+}
+
+.envelope-container > .letter > .letter-main-container > form > .letter-name-container, .envelope-container > .letter > .letter-main-container > form >.letter-email-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.envelope-container > .letter > .letter-main-container > form > .letter-name-container{
+    margin-bottom: 2vmin;
+}
+
+.envelope-container > .letter > .letter-main-container > form >.letter-email-container{
+    margin-bottom: 1.5vmin;
+    margin-top: 2vmin;
+}
+
+.envelope-container > .letter > .letter-main-container > form > div > p{
+    font-size: 2vmin;
+    font-weight: bold;
+    margin-right: .5vmin;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.envelope-container > .letter > .letter-main-container > form > div > i{
+    color: gray;
+    font-size: 2vmin;
+    margin-right: .5vmin;
+    position: absolute;
+    right: 0;
+}
+
+.envelope-container > .letter > .letter-main-container > form > .letter-name-container > input[type=text], .envelope-container > .letter > .letter-main-container > form > .letter-email-container > input[type=email]{
+    border-bottom: 1px solid gray;
+    flex: 1;
+    margin-left: .5vmin;
+}
+
+.envelope-container > .letter > .letter-main-container > form > input[type=submit]{
+    background-color: red;
+    color: white;
+    font-size: 2vmin;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5vmin;
+    padding: .5vmax 3vmax;
+    text-transform: uppercase;
+    width: fit-content;
+}
