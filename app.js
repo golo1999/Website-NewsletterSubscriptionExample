@@ -47,9 +47,3 @@ app.post("/", (req, res) =>
 app.post("/success", (req, res)=>{res.redirect("/")});
 
 app.listen(port);
-
-// mailchimp api key
-// 1ec52c9b1de52e76fdebbc23e084df88-us1
-
-// mailchimp list id
-// fa4b7e97c0
